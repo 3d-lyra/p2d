@@ -1,4 +1,4 @@
-import { HorizontalObjectOut } from "./types.ts";
+import { HorizontalObjectOut, ModelOut, TableOut } from "./types.ts";
 
 class Permission2D {
   private _value = 0n;
@@ -76,6 +76,22 @@ class Permission2D {
       }
     }
     return this;
+  }
+
+  table(model: ModelOut): TableOut {
+    const table: TableOut = {};
+    for (const verticalKey in model) {
+      for (const horizontalKey in model[verticalKey]) {
+        if (table[verticalKey] === undefined) {
+          table[verticalKey] = {};
+        }
+
+        table[verticalKey][horizontalKey] = this.has(
+          model[verticalKey][horizontalKey],
+        );
+      }
+    }
+    return table;
   }
 }
 
