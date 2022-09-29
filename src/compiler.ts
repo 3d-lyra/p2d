@@ -1,5 +1,20 @@
 import { ModelIn, ModelOut } from "./types.ts";
-
+/**
+ * Calculates exponent of some n numbers and creates unique hex values
+ *
+ * # Example
+ *
+ * ```ts
+ * import { compile } from "../mod.ts"
+ *
+ * const model = { todo: { read: null, write: null } }
+ * const out = compile( model )
+ * console.log( out )
+ * ```
+ *
+ * @param {ModelIn} model - Customizable helper object (a.k.a Compiled permission model)
+ * @returns {ModelOut} - Object with unique hex values
+ */
 function compile(model: ModelIn): ModelOut {
   const out: ModelOut = {};
   const verticalKeys = Object.keys(model);
