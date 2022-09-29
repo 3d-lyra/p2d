@@ -1,3 +1,5 @@
+import { HorizontalObjectOut } from "./types.ts";
+
 class Permission2D {
   private _value = 0n;
 
@@ -13,7 +15,16 @@ class Permission2D {
     return this._value.toString(16);
   }
 
-  has(value: string): boolean {
+  has(value: string | HorizontalObjectOut): boolean {
+    if (typeof value !== "string") {
+      const horizontalKeys = Object.keys(value);
+      for (const key of horizontalKeys) {
+        if (!this.has(value[key])) {
+          return false;
+        }
+      }
+      return true;
+    }
     try {
       if (Number.isNaN(Number("0x" + value))) {
         throw new Error();
@@ -25,30 +36,44 @@ class Permission2D {
     }
   }
 
-  allow(value: string) {
-    try {
-      if (Number.isNaN(Number("0x" + value))) {
-        throw new Error();
+  allow(value: string | HorizontalObjectOut) {
+    if (typeof value !== "string") {
+      const horizontalKeys = Object.keys(value);
+      for (const key of horizontalKeys) {
+        this.allow(value[key]);
       }
-      if (!this.has(value)) {
-        this._value |= BigInt("0b1" + ("0".repeat(Number("0x" + value))));
+    } else {
+      try {
+        if (Number.isNaN(Number("0x" + value))) {
+          throw new Error();
+        }
+        if (!this.has(value)) {
+          this._value |= BigInt("0b1" + ("0".repeat(Number("0x" + value))));
+        }
+      } catch (_e) {
+        throw new Error("Invalid value");
       }
-    } catch (_e) {
-      throw new Error("Invalid value");
     }
     return this;
   }
 
-  disallow(value: string) {
-    try {
-      if (Number.isNaN(Number("0x" + value))) {
-        throw new Error();
+  disallow(value: string | HorizontalObjectOut) {
+    if (typeof value !== "string") {
+      const horizontalKeys = Object.keys(value);
+      for (const key of horizontalKeys) {
+        this.disallow(value[key]);
       }
-      if (this.has(value)) {
-        this._value ^= BigInt("0b1" + ("0".repeat(Number("0x" + value))));
+    } else {
+      try {
+        if (Number.isNaN(Number("0x" + value))) {
+          throw new Error();
+        }
+        if (this.has(value)) {
+          this._value ^= BigInt("0b1" + ("0".repeat(Number("0x" + value))));
+        }
+      } catch (_e) {
+        throw new Error("Invalid value");
       }
-    } catch (_e) {
-      throw new Error("Invalid value");
     }
     return this;
   }
