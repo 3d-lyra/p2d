@@ -24,6 +24,20 @@ class Permission2D {
       throw new Error("Invalid value");
     }
   }
+
+  allow(value: string) {
+    try {
+      if (Number.isNaN(Number("0x" + value))) {
+        throw new Error();
+      }
+      if (!this.has(value)) {
+        this._value |= BigInt("0b1" + ("0".repeat(Number("0x" + value))));
+      }
+    } catch (_e) {
+      throw new Error("Invalid value");
+    }
+    return this;
+  }
 }
 
 export { Permission2D };
