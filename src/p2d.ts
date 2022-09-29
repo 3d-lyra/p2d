@@ -12,6 +12,18 @@ class Permission2D {
   value(): string {
     return this._value.toString(16);
   }
+
+  has(value: string): boolean {
+    try {
+      if (Number.isNaN(Number("0x" + value))) {
+        throw new Error();
+      }
+      return (this._value &
+        BigInt("0b1" + ("0".repeat(Number("0x" + value))))) !== 0n;
+    } catch (_e) {
+      throw new Error("Invalid value");
+    }
+  }
 }
 
 export { Permission2D };
