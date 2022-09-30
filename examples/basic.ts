@@ -1,4 +1,4 @@
-import { Permission2D } from "../mod.ts";
+import { Permission2D } from "https://deno.land/x/p2d/mod.ts";
 
 // Permissions for Catarina
 const catarina = new Permission2D(); // initial value: string( 0 )

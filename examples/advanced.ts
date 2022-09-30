@@ -1,4 +1,4 @@
-import { compile, Permission2D } from "../mod.ts";
+import { compile, Permission2D } from "https://deno.land/x/p2d/mod.ts";
 
 // Permission model
 const model = {
