@@ -10,8 +10,8 @@
   "scripts": {
      "build": "rm -rf dist/ && npm run tsconfig && npm run build:esm && npm run build:cjs",
      "tsconfig": "tsc --init",
-     "build:esm": "tsc",
-     "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+     "build:esm": "tsc mod.ts",
+     "build:cjs": "tsc mod.ts --module CommonJS --outDir dist/cjs",
      "prepublishOnly": "npm run build"
    },
   "author": "Aleph Null",
