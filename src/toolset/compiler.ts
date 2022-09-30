@@ -5,7 +5,7 @@ import { ModelIn, ModelOut, Rights } from "../types.ts";
  * # Example
  *
  * ```ts
- * import { compile } from "../mod.ts"
+ * import { compile } from "https://deno.land/x/p2d/mod.ts"
  *
  * const model = { todo: { read: null, write: null } }
  * const out = compile( model )
