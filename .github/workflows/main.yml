@@ -36,6 +36,5 @@ jobs:
         run: |
           npm ci
           npm publish --access public
-        working-directory: pd2
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
