@@ -5,7 +5,7 @@ import { HorizontalObjectOut, ModelOut, Rights, TableOut } from "./types.ts";
  * # Example
  *
  * ```ts
- * import { Permission2D } from "../mod.ts"
+ * import { Permission2D } from "https://deno.land/x/p2d/mod.ts"
  *
  * const permissionManager = new Permission2D()
  *
