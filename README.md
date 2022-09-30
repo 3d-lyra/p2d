@@ -17,4 +17,5 @@ single `Hexadecimal` string.
 - High-performance calculations with Bitwise operations
 
 ## Showcase
+
 ![Showcase](doc/showcase.gif)

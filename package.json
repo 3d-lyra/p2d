@@ -1,0 +1,32 @@
+{
+  "name": "@leph/permission",
+  "version": "1.0.0",
+  "description": "Bitwise based permission manager",
+  "main": "node/index.js",
+  "files": [
+    "node/index.js"
+  ],
+  "scripts": {
+    "test": "deno test",
+    "bench": "deno bench --unstable ./bench",
+    "build": "deno bundle ./mod.ts node/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Aleph Null",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lephn/p2d.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lephn/p2d/issues"
+  },
+  "homepage": "https://github.com/lephn/p2d",
+  "keywords": [
+    "permission",
+    "access",
+    "authorization",
+    "deno",
+    "node"
+  ],
+  "license": "MIT"
+}

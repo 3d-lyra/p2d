@@ -1,0 +1,7 @@
+.github/
+bench/
+doc/
+examples/
+tests/
+src/
+mod.ts
