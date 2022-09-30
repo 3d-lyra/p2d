@@ -1,5 +1,5 @@
 {
-  "name": "@leph/permission",
+  "name": "@leph/p2d",
   "version": "1.0.0",
   "description": "Bitwise based permission manager",
   "main": "node/index.js",
