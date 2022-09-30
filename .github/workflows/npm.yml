@@ -19,7 +19,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - name: publish
-        run: npm ci
         run: npm publish --access public
         working-directory: p2d
         env:
