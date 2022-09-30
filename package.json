@@ -8,7 +8,8 @@
     "dist"
   ],
   "scripts": {
-     "build": "rm -rf dist/ && npm run build:esm && npm run build:cjs",
+     "build": "rm -rf dist/ && npm run tsconfig && npm run build:esm && npm run build:cjs",
+     "tsconfig": "tsc --init",
      "build:esm": "tsc",
      "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
      "prepublishOnly": "npm run build"
