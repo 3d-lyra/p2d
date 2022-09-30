@@ -5,7 +5,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
-    "dist"
+    "src"
   ],
   "scripts": {
      "build": "rm -rf dist/ && npm run tsconfig && npm run build:esm && npm run build:cjs",
