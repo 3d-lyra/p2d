@@ -10,3 +10,6 @@ single `Hexadecimal` string.
 - Compressing bigint values with hexadecimal string
 - Compiling permission object model (Helper toolset)
 - High-performance calculations with Bitwise operations
+
+## Showcase
+![Showcase](doc/showcase.gif)
