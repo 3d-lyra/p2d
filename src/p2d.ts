@@ -1,4 +1,4 @@
-import { HorizontalObjectOut, ModelOut, TableOut } from "./types.ts";
+import { HorizontalObjectOut, ModelOut, Rights, TableOut } from "./types.ts";
 /**
  * Two-dimensional Permission manager
  *
@@ -25,9 +25,9 @@ import { HorizontalObjectOut, ModelOut, TableOut } from "./types.ts";
 class Permission2D {
   private _value = 0n;
   /**
-   * @param {string} value - (Current/Initial) value in Hexadecimal string
+   * @param {Rights} value - (Current/Initial) value in Hexadecimal string
    */
-  constructor(value: string = "0") {
+  constructor(value: Rights = "0") {
     try {
       this._value = BigInt("0x" + String(value));
     } catch (_e) {
@@ -37,18 +37,18 @@ class Permission2D {
 
   /**
    * Get the current value (a.k.a Permissions)
-   * @returns {string} - Hexadecimal string
+   * @returns {Rights} - Hexadecimal string
    */
-  value(): string {
+  value(): Rights {
     return this._value.toString(16);
   }
 
   /**
    * Check permission
-   * @param {(string|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
+   * @param {(Rights|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
    * @returns {boolean} - Allowed or Denied
    */
-  has(value: string | HorizontalObjectOut): boolean {
+  has(value: Rights | HorizontalObjectOut): boolean {
     if (typeof value !== "string") {
       const horizontalKeys = Object.keys(value);
       for (const key of horizontalKeys) {
@@ -71,10 +71,10 @@ class Permission2D {
 
   /**
    * Allow permission
-   * @param {(string|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
+   * @param {(Rights|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
    * @returns {this} - Permission2D instance
    */
-  allow(value: string | HorizontalObjectOut) {
+  allow(value: Rights | HorizontalObjectOut) {
     if (typeof value !== "string") {
       const horizontalKeys = Object.keys(value);
       for (const key of horizontalKeys) {
@@ -97,10 +97,10 @@ class Permission2D {
 
   /**
    * Revoke permission
-   * @param {(string|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
+   * @param {(Rights|HorizontalObjectOut)} - Hexadecimal string or Horizontal keys object
    * @returns {this} - Permission2D instance
    */
-  disallow(value: string | HorizontalObjectOut) {
+  disallow(value: Rights | HorizontalObjectOut) {
     if (typeof value !== "string") {
       const horizontalKeys = Object.keys(value);
       for (const key of horizontalKeys) {

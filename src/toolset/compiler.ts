@@ -1,4 +1,4 @@
-import { ModelIn, ModelOut } from "./types.ts";
+import { ModelIn, ModelOut, Rights } from "../types.ts";
 /**
  * Calculates exponent of some n numbers and creates unique hex values
  *
@@ -30,7 +30,7 @@ function compile(model: ModelIn): ModelOut {
     for (let j = 0; j < horizontalKeys.length; j++) {
       out[verticalKeys[i]][horizontalKeys[j]] =
         (2n ** ((BigInt(i) * 256n) + BigInt(j))).toString(2).length
-          .toString(16);
+          .toString(16) as Rights;
     }
   }
 
